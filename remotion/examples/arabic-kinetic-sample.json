@@ -1,0 +1,139 @@
+{
+  "audio": "",
+  "duration": 20.5,
+  "scenes": [
+    {
+      "end": 1.4,
+      "lines": [
+        "إيه ده؟!"
+      ],
+      "start": 0.0,
+      "type": "starburst"
+    },
+    {
+      "end": 2.8,
+      "icons": [
+        "audio",
+        "play",
+        "text",
+        "spark",
+        "image"
+      ],
+      "lines": [
+        "هوال",
+        "اتجنن ولا ايه؟!"
+      ],
+      "robot": true,
+      "start": 1.4,
+      "type": "ai-orbit",
+      "word": "AI"
+    },
+    {
+      "cards": [
+        "sunset"
+      ],
+      "end": 4.2,
+      "lines": [
+        "ده بقى بيعمل"
+      ],
+      "start": 2.8,
+      "type": "editor"
+    },
+    {
+      "end": 6.2,
+      "lines": [
+        "يخلي عينك",
+        "تلف معاه!"
+      ],
+      "start": 4.2,
+      "type": "eye"
+    },
+    {
+      "arrow": true,
+      "cards": [
+        "sunset",
+        "city"
+      ],
+      "end": 7.6,
+      "lines": [
+        "حركة",
+        "من اليمين"
+      ],
+      "start": 6.2,
+      "type": "title-cards"
+    },
+    {
+      "end": 9.2,
+      "lines": [
+        "فرقعة!",
+        "من الشمال"
+      ],
+      "start": 7.6,
+      "type": "starburst"
+    },
+    {
+      "bigWord": "بتتنطط!",
+      "cards": [
+        "sunset",
+        "city",
+        "waveform",
+        "equalizer"
+      ],
+      "end": 11.2,
+      "lines": [
+        "والدنيا كلها"
+      ],
+      "start": 9.2,
+      "type": "card-grid"
+    },
+    {
+      "end": 12.2,
+      "lines": [
+        "والمصيبة",
+        "؟"
+      ],
+      "start": 11.2,
+      "type": "starburst"
+    },
+    {
+      "end": 14.2,
+      "icons": [
+        "image",
+        "text",
+        "audio",
+        "play",
+        "spark"
+      ],
+      "lines": [
+        "ده كله",
+        "بالذكاء الاصطناعي"
+      ],
+      "start": 12.2,
+      "type": "robot-bar"
+    },
+    {
+      "end": 16.4,
+      "lines": [
+        "عايز تعرف",
+        "تعمل الجنون ده",
+        "إزاي بالظبط؟"
+      ],
+      "start": 14.2,
+      "type": "question",
+      "word": "؟"
+    },
+    {
+      "commentPlaceholder": "أضف تعليقا...",
+      "end": 20.5,
+      "lines": [
+        "اكتب",
+        "في الكومنتات",
+        "وأنا أقولك",
+        "على الطريقة!"
+      ],
+      "start": 16.4,
+      "type": "cta",
+      "word": "AI"
+    }
+  ]
+}
