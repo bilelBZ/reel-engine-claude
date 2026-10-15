@@ -29,10 +29,28 @@ export const MoneyCards: React.FC<MoneyCardsProps> = ({
   topBar,
   points,
   cta,
+  hook = "",
   durationInSeconds,
 }) => {
   const frame = useCurrentFrame();
-  const { durationInFrames } = useVideoConfig();
+  const { durationInFrames, fps } = useVideoConfig();
+
+  // Hook opener: full-screen bold text for the first ~1.5s, then reveal.
+  const hookFrames = Math.round(fps * 1.5);
+  const hookOpacity = interpolate(frame, [0, 8, hookFrames - 8, hookFrames + 6], [0, 1, 1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const hookScale = interpolate(frame, [0, hookFrames], [1.25, 1.0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  // Main content stays hidden while the hook opener plays, then fades in.
+  const contentOpacity = interpolate(frame, [hookFrames - 2, hookFrames + 16], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   // Visible Ken Burns drift: push-in 1.06 -> 1.16 plus a slow diagonal
   // pan, so the background unmistakably moves even under heavy text.
@@ -67,6 +85,8 @@ export const MoneyCards: React.FC<MoneyCardsProps> = ({
         />
       </AbsoluteFill>
 
+      {/* Main content (hidden during hook opener) */}
+      <div style={{ position: "absolute", inset: 0, opacity: contentOpacity }}>
       {/* TOP transformation bar */}
       <div
         style={{
@@ -166,8 +186,38 @@ export const MoneyCards: React.FC<MoneyCardsProps> = ({
           {cta}
         </div>
       </div>
+      </div>
 
       <Audio src={audioSrc} />
+
+      {/* HOOK opener: full-screen bold text, first ~1.5s */}
+      {hook && hookOpacity > 0 && (
+        <AbsoluteFill
+          style={{
+            backgroundColor: "rgba(0,0,0,0.62)",
+            justifyContent: "center",
+            alignItems: "center",
+            opacity: hookOpacity,
+            padding: 60,
+          }}
+        >
+          <div
+            style={{
+              fontFamily: FONT,
+              fontWeight: 900,
+              fontSize: 110,
+              color: "#ffffff",
+              textAlign: "center",
+              lineHeight: 1.2,
+              letterSpacing: -2,
+              transform: `scale(${hookScale})`,
+              textShadow: "0 6px 40px rgba(0,0,0,0.8)",
+            }}
+          >
+            {hook}
+          </div>
+        </AbsoluteFill>
+      )}
     </AbsoluteFill>
   );
 };

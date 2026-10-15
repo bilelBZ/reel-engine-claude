@@ -14,6 +14,11 @@ export const MoneyCardsPropsSchema = z.object({
     .array(z.string())
     .describe("Numbered script points, each rendered as black pill-box lines"),
   cta: z.string().describe('Bottom CTA, e.g. "Got ... right now? YES or NO 👉"'),
+  hook: z
+    .string()
+    .optional()
+    .default("")
+    .describe("Full-screen opening hook text, shown ~1.5s before cards"),
   durationInSeconds: z.number().positive(),
 });
 
